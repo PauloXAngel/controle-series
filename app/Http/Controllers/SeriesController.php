@@ -8,18 +8,17 @@ class SeriesController extends Controller
 {
     public function index(Request $request)
     {
-        
         $series = [
-            'Breaking Bad',
-            'Game of Thrones',
-            'Stranger Things',
-            'The Crown',
-            'The Mandalorian'
+            'Punisher',
+            'Lost',
+            'Grey\'s Anatomy',
         ];
+
         return view('series.index')->with('series', $series);
     }
 
-    public function create(){
+    public function create()
+    {
         return view('series.create');
     }
 }
