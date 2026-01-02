@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Serie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class SeriesController extends Controller
 {
@@ -23,6 +24,13 @@ class SeriesController extends Controller
     {
         Serie::create($request->all());
 
-        return redirect('/series');
+        return to_route('series.index');
+    }
+
+    public function destroy(Request $request)
+    {
+       Serie::destroy($request->series);
+
+       return to_route('series.index');
     }
 }
